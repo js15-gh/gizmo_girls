@@ -21,7 +21,7 @@ AXLE_TRACK_MM = 113      # The distance between the centers of the wheels.
 
 # Movement constants
 # You determined that a negative angle makes the robot turn right.
-RIGHT_TURN_ANGLE_SIGN = -1
+RIGHT_TURN_ANGLE_SIGN = 1
 # You determined that a negative radius forces a forward curve.
 CURVE_RADIUS_SIGN = -1
 

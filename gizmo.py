@@ -103,18 +103,8 @@ def proportional_turn_distance(distance_inches, angle_degrees):
     # Calculate the radius based on the desired distance and angle.
     radius_in_mm = (360 * abs(distance_mm)) / (2 * umath.pi * abs(angle_degrees))
     
-    # Bug fix: Ensure the robot drives forward.
-    # The sign of the radius determines the turn direction and is used in `curve()`.
-    # The sign of the angle determines the direction of travel along that arc.
-    
-    # Curve right (negative angle needed)
-    if angle_degrees > 0:
-        # Use a negative radius to force a forward turn for your specific robot.
-        robot.curve(radius_in_mm * CURVE_RADIUS_SIGN, angle_degrees * RIGHT_TURN_ANGLE_SIGN)
-    # Curve left (positive angle needed)
-    else:
-        # The radius is still positive for a left turn, no extra sign is needed.
-        robot.curve(radius_in_mm, abs(angle_degrees))
+    # radius is derived from angle and distance
+    robot.curve(radius_in_mm, angle_degrees)
 
 
 

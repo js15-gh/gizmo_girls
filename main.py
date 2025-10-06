@@ -25,7 +25,7 @@ def main_program():
     # 5) Go forward 5 inches
     gizmo.go_forward(5)
     print("-" * 20)
-#yayyyyyy
+
     # 6) Make left proportional turn and travel for 2 seconds
     gizmo.proportional_turn_duration(speed_mm_s=100, turn_rate_deg_s=-45, duration_s=2)
     print("-" * 20)

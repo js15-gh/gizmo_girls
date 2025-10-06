@@ -11,8 +11,8 @@ from pybricks.tools import wait
 # Motor and Port configuration
 # Set the motor objects, ensuring the left motor turns the same way as the right.
 # You determined that you need to use Direction.COUNTERCLOCKWISE for the right motor.
-LEFT_MOTOR = Motor(Port.A)
-RIGHT_MOTOR = Motor(Port.B, Direction.COUNTERCLOCKWISE)
+LEFT_MOTOR = Motor(Port.A, Direction.COUNTERCLOCKWISE)
+RIGHT_MOTOR = Motor(Port.B)
 
 # DriveBase measurements
 # Measured in millimeters (mm).
@@ -56,14 +56,14 @@ def go_reverse(distance_inches):
 def turn_right_degrees(degrees):
     """Turns the robot right for a specified number of degrees."""
     print(f"Action: Turning right {degrees} degrees...")
-    robot.turn(degrees * RIGHT_TURN_ANGLE_SIGN)
+    robot.turn(degrees * RIGHT_TURN_ANGLE_SIGN * -1)
     wait(100)  # Pause briefly for stability.
 
 
 def turn_left_degrees(degrees):
     """Turns the robot left for a specified number of degrees."""
     print(f"Action: Turning left {degrees} degrees...")
-    robot.turn(degrees * -RIGHT_TURN_ANGLE_SIGN)
+    robot.turn(degrees * -RIGHT_TURN_ANGLE_SIGN * -1)
     wait(100)  # Pause briefly for stability.
 
 

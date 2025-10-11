@@ -13,6 +13,8 @@ from pybricks.tools import wait
 # You determined that you need to use Direction.COUNTERCLOCKWISE for the right motor.
 LEFT_MOTOR = Motor(Port.A, Direction.COUNTERCLOCKWISE)
 RIGHT_MOTOR = Motor(Port.B)
+C_ATTACHMENT = Motor(Port.C, Direction.COUNTERCLOCKWISE)
+D_ATTACHMENT = Motor(Port.D, Direction.COUNTERCLOCKWISE)
 
 # DriveBase measurements
 # Measured in millimeters (mm).
@@ -33,9 +35,28 @@ CURVE_RADIUS_SIGN = -1
 hub = PrimeHub()
 robot = DriveBase(LEFT_MOTOR, RIGHT_MOTOR, WHEEL_DIAMETER_MM, AXLE_TRACK_MM)
 
+cur = robot.settings()
+straight_speed, straight_accel, turn_rate, turn_accel = cur
+
+print("Current DriveBase settings:")
+print(f" straight_speed : {straight_speed} mm/s")
+print(f" straight_accel : {straight_accel} mm/s2")
+print(f" turn_rate : {turn_rate} deg/s")
+print(f" turn_accel : {turn_accel} deg/s2")
+
 
 # --- LIBRARY FUNCTIONS ---
 # Functions that hide the complexity of the robot's specific configurations.
+
+def change_speed(pct):
+    s_speed, s_acc, t_rate, t_acc = robot.settings()
+    s_speed = straight_speed * pct/100 
+    print("Changing DriveBase settings:")
+    print(f" straight_speed : {s_speed} mm/s")
+    print(f" straight_accel : {s_acc} mm/s2")
+    print(f" turn_rate : {t_rate} deg/s")
+    print(f" turn_accel : {t_acc} deg/s2")
+    robot.settings(s_speed, s_acc, t_rate, t_acc)
 
 def go_forward(distance_inches):
     """Drives the robot straight forward for a specified distance in inches."""
@@ -105,6 +126,14 @@ def proportional_turn_distance(distance_inches, angle_degrees):
     
     # radius is derived from angle and distance
     robot.curve(radius_in_mm, angle_degrees)
+
+def c_turn_angle_back2zero(speed, angle):
+    C_ATTACHMENT.run_angle(speed, angle)
+    C_ATTACHMENT.run_target(speed, 0)
+
+def d_turn_angle_back2zero(speed, angle):
+    D_ATTACHMENT.run_angle(speed, angle)
+    D_ATTACHMENT.run_target(speed, 0)
 
 
 

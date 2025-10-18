@@ -135,5 +135,7 @@ def d_turn_angle_back2zero(speed, angle):
     D_ATTACHMENT.run_angle(speed, angle)
     D_ATTACHMENT.run_target(speed, 0)
 
-
+def d_turn_angle_comeback(speed, angle):
+    D_ATTACHMENT.run_angle(speed, angle)
+    D_ATTACHMENT.run_angle(speed*2, -angle)
 

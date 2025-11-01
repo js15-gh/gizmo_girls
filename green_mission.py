@@ -4,17 +4,32 @@ def main_program():
     print("Starting main program sequence...")
     print("-" * 20)
 
-    # 1) Go forward 30 inches
-    gizmo.go_forward(30.5)
-    print("-" * 20)
 
- # 2) Turn left 50 degrees
-    gizmo.turn_left_degrees(45)
-    print("-" * 20)
+#1) Raise the ship
+    gizmo.drive_forward(400,390,21)
+    gizmo.wait(500)
+    gizmo.c_turn_angle(-150,110)
+    gizmo.go_reverse(2)
+    gizmo.d_turn_angle(500, 300)
+    gizmo.go_reverse(10)
+   # i = 0
+    #while i<8:
+      #i = i + 1
+      #gizmo.drive_forward(400,350,3)
+      #gizmo.go_reverse(3)
 
- # 1) Go forward 1 inches
-    gizmo.go_forward(1)
-    print("-" * 20)
+# 2) Raise the ship
+    #gizmo.go_forward(14)
+    #gizmo.d_turn_angle(500,300)
+    #gizmo.go_reverse(2)
+    #gizmo.d_turn_angle(-500,300)
+
+
+
+
+
+ # 3) 
+
 
 # --- RUN THE MAIN PROGRAM ---
 main_program()

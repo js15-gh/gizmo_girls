@@ -1,9 +1,10 @@
 import umath
 from pybricks.hubs import PrimeHub
 from pybricks.pupdevices import Motor
-from pybricks.parameters import Port, Direction
+from pybricks.parameters import Port, Direction, Color, Stop
 from pybricks.robotics import DriveBase
 from pybricks.tools import wait
+from pybricks.pupdevices import ColorSensor
 
 # --- CONFIGURATION VARIABLES ---
 # These are the only variables you should need to change for a new robot.
@@ -43,7 +44,6 @@ print(f" straight_speed : {straight_speed} mm/s")
 print(f" straight_accel : {straight_accel} mm/s2")
 print(f" turn_rate : {turn_rate} deg/s")
 print(f" turn_accel : {turn_accel} deg/s2")
-
 
 # --- LIBRARY FUNCTIONS ---
 # Functions that hide the complexity of the robot's specific configurations.
@@ -135,8 +135,39 @@ def d_turn_angle_back2zero(speed, angle):
     D_ATTACHMENT.run_angle(speed, angle)
     D_ATTACHMENT.run_target(speed, 0)
 
+def d_turn_angle_comeback(speed, angle):
+    D_ATTACHMENT.run_angle(speed, angle)
+    D_ATTACHMENT.run_angle(speed*2, -angle)
+
 def c_turn_angle(speed, angle):
-    C_ATTACHMENT.run_angle(speed, angle)
+   C_ATTACHMENT.run_angle(speed, angle)
 
 def d_turn_angle(speed, angle):
-    D_ATTACHMENT.run_angle(speed, angle)
+   D_ATTACHMENT.run_angle(speed, angle)
+
+# function to wait for the desired color
+def wait_for_color(desired_color):
+    sensor = ColorSensor(Port.E)
+    print("wait_for_color starting..")
+    # start driving the robot
+    robot.drive(200,0)
+    # while the desired color is not detected, keep waiting
+    while sensor.color() != desired_color:
+        print(f"Color = {sensor.color()} , Reflection = {sensor.reflection()}")
+        wait(20)
+    # if we are here, desired color must be detected, so we can stop
+    robot.stop()
+
+# function to wait for the desired reflection number
+def wait_for_reflection(desired_number):
+    sensor = ColorSensor(Port.E)
+    print(f"wait_for_reflection {desired_number} starting..")
+    # start driving the robot
+    robot.drive(200,0)
+    # while the desired reflection is not detected, keep waiting
+    while sensor.reflection() >= desired_number:
+        print(f"Color = {sensor.color()} , Reflection = {sensor.reflection()}")
+        wait(20)
+    # if we are here, desired reflection must be detected, so we can stop
+    print(f"reached desired reflection {sensor.reflection()}, which is less than or equal to {desired_number}, so stop")
+    robot.stop()

@@ -59,14 +59,14 @@ def main_program():
     gizmo.turn_left_degrees(90)
     gizmo.go_forward(3)
     gizmo.go_reverse(2)
-    gizmo.turn_left_degrees(4)
+    gizmo.turn_left_degrees(3.5)
     gizmo.go_reverse(8)
     gizmo.c_turn_angle_back2zero(-2000, 240)
     gizmo.c_turn_angle_back2zero(-2000, 240)
     gizmo.c_turn_angle_back2zero(-2000, 240)
     gizmo.c_turn_angle_back2zero(-2000, 240)
     # I need to go down for time, not degrees
-    gizmo.go_reverse(2.2)
+    gizmo.go_reverse(2.4)
     gizmo.d_turn_angle(300, 162)
     gizmo.go_reverse(7)
 

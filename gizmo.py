@@ -171,3 +171,11 @@ def wait_for_reflection(desired_number):
     # if we are here, desired reflection must be detected, so we can stop
     print(f"reached desired reflection {sensor.reflection()}, which is less than or equal to {desired_number}, so stop")
     robot.stop()
+
+# function to only turn one motor
+def turn_single_motor_A(speed, degrees):
+    LEFT_MOTOR.run_angle(speed, degrees, Stop.BRAKE)
+
+# function to only turn one motor
+def turn_single_motor_A(speed, degrees):
+    RIGHT_MOTOR.run_angle(speed, degrees, Stop.BRAKE)

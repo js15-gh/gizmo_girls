@@ -135,6 +135,12 @@ def d_turn_angle_back2zero(speed, angle):
     D_ATTACHMENT.run_angle(speed, angle)
     D_ATTACHMENT.run_target(speed, 0)
 
+def c_turn_time(speed, time):
+    C_ATTACHMENT.run_time(speed, time * 1000)
+
+def d_turn_time(speed, time):
+    D_ATTACHMENT.run_time(speed, time * 1000)
+
 def d_turn_angle_comeback(speed, angle):
     D_ATTACHMENT.run_angle(speed, angle)
     D_ATTACHMENT.run_angle(speed*2, -angle)
@@ -177,5 +183,5 @@ def turn_single_motor_A(speed, degrees):
     LEFT_MOTOR.run_angle(speed, degrees, Stop.BRAKE)
 
 # function to only turn one motor
-def turn_single_motor_A(speed, degrees):
+def turn_single_motor_B(speed, degrees):
     RIGHT_MOTOR.run_angle(speed, degrees, Stop.BRAKE)

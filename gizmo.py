@@ -185,3 +185,22 @@ def turn_single_motor_A(speed, degrees):
 # function to only turn one motor
 def turn_single_motor_B(speed, degrees):
     RIGHT_MOTOR.run_angle(speed, degrees, Stop.BRAKE)
+
+def drive_forward(left_power, right_power, distance_inches):
+    wheel_circumference = 3.1416 * WHEEL_DIAMETER_MM
+    degrees_to_rotate = (distance_inches * 25.4) / wheel_circumference * 360
+
+    LEFT_MOTOR.reset_angle(0)
+    RIGHT_MOTOR.reset_angle(0)
+
+    LEFT_MOTOR.run(left_power)
+    RIGHT_MOTOR.run(right_power)
+
+    while True:
+        avg_angle = (abs(LEFT_MOTOR.angle()) + abs(RIGHT_MOTOR.angle())) / 2
+        if avg_angle >= degrees_to_rotate:
+            break
+        wait(10)
+
+    LEFT_MOTOR.stop()
+    RIGHT_MOTOR.stop()

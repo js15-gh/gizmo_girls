@@ -154,6 +154,38 @@ def d_turn_angle(speed, angle):
    print(f"d_turn_angle speed ={speed}, angle = {angle}")
    D_ATTACHMENT.run_angle(speed, angle)
 
+# example stored color data (add more later)
+COLOR_REFERENCES = {
+    "MAGENTA": {"hsv": (339, 77, 36), "ambient": 0.6},
+    "BLUE": {"hsv": (214, 85, 32), "ambient": 0.5},
+    "GREEN": {"hsv": (158, 65, 24), "ambient": 0.4},
+    "RED": {"hsv": (352, 87, 43), "ambient": 0.4},
+    "YELLOW": {"hsv": (50, 71, 70), "ambient": 0.3},
+    "BLACK": {"hsv": (0, 0, 11), "ambient": 0.3},
+}
+
+def color_check(color_name, hue_tol=15, sat_tol=20, val_tol=20, amb_tol=10):
+    """Checks if the current sensor reading matches the given color reference."""
+    sensor = ColorSensor(Port.F)
+    h, s, v = sensor.hsv()
+    ambient = sensor.ambient()
+
+    if color_name not in COLOR_REFERENCES:
+        raise ValueError(f"Color '{color_name}' not in reference dictionary!")
+
+    ref = COLOR_REFERENCES[color_name]
+    ref_h, ref_s, ref_v = ref["hsv"]
+    ref_amb = ref["ambient"]
+
+    hue_match = abs(h - ref_h) < hue_tol
+    sat_match = abs(s - ref_s) < sat_tol
+    val_match = abs(v - ref_v) < val_tol
+    amb_match = abs(ambient - ref_amb) < amb_tol
+
+    print(str(hue_match), str(sat_match), str(val_match), str(amb_match))
+
+    return hue_match and sat_match and val_match and amb_match
+
 # function to wait for the desired color
 def wait_for_color(desired_color):
     sensor = ColorSensor(Port.E)

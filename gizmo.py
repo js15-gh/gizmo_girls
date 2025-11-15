@@ -39,11 +39,11 @@ robot = DriveBase(LEFT_MOTOR, RIGHT_MOTOR, WHEEL_DIAMETER_MM, AXLE_TRACK_MM)
 cur = robot.settings()
 straight_speed, straight_accel, turn_rate, turn_accel = cur
 
-print("Current DriveBase settings:")
-print(f" straight_speed : {straight_speed} mm/s")
-print(f" straight_accel : {straight_accel} mm/s2")
-print(f" turn_rate : {turn_rate} deg/s")
-print(f" turn_accel : {turn_accel} deg/s2")
+# print("Current DriveBase settings:")
+# print(f" straight_speed : {straight_speed} mm/s")
+# print(f" straight_accel : {straight_accel} mm/s2")
+# print(f" turn_rate : {turn_rate} deg/s")
+# print(f" turn_accel : {turn_accel} deg/s2")
 
 # --- LIBRARY FUNCTIONS ---
 # Functions that hide the complexity of the robot's specific configurations.
@@ -51,6 +51,17 @@ print(f" turn_accel : {turn_accel} deg/s2")
 def change_speed(pct):
     s_speed, s_acc, t_rate, t_acc = robot.settings()
     s_speed = straight_speed * pct/100 
+    print("Changing DriveBase settings:")
+    print(f" straight_speed : {s_speed} mm/s")
+    print(f" straight_accel : {s_acc} mm/s2")
+    print(f" turn_rate : {t_rate} deg/s")
+    print(f" turn_accel : {t_acc} deg/s2")
+    robot.settings(s_speed, s_acc, t_rate, t_acc)
+
+def change_turn_speed(pct):
+    s_speed, s_acc, t_rate, t_acc = robot.settings()
+    t_rate = turn_rate * pct/100 
+    t_acc = turn_accel * pct/100
     print("Changing DriveBase settings:")
     print(f" straight_speed : {s_speed} mm/s")
     print(f" straight_accel : {s_acc} mm/s2")
@@ -162,9 +173,10 @@ COLOR_REFERENCES = {
     "RED": {"hsv": (352, 87, 43), "ambient": 0.4},
     "YELLOW": {"hsv": (50, 71, 70), "ambient": 0.3},
     "BLACK": {"hsv": (0, 0, 11), "ambient": 0.3},
+    "ORANGE": {"hsv": (3,83,64), "ambient": 0.4},
 }
 
-def color_check(color_name, hue_tol=7, sat_tol=7, val_tol=7, amb_tol=10):
+def color_check(color_name, hue_tol=8, sat_tol=8, val_tol=8, amb_tol=10):
     """Checks if the current sensor reading matches the given color reference."""
     print(f"checking color {color_name}")
     sensor = ColorSensor(Port.F)
@@ -173,6 +185,7 @@ def color_check(color_name, hue_tol=7, sat_tol=7, val_tol=7, amb_tol=10):
 
     ambient = sensor.ambient()
     print(f"ambient={ambient}")
+    print(f"color = {sensor.color()}")
 
     if color_name not in COLOR_REFERENCES:
         raise ValueError(f"Color '{color_name}' not in reference dictionary!")

@@ -164,20 +164,27 @@ COLOR_REFERENCES = {
     "BLACK": {"hsv": (0, 0, 11), "ambient": 0.3},
 }
 
-def color_check(color_name, hue_tol=15, sat_tol=20, val_tol=20, amb_tol=10):
+def color_check(color_name, hue_tol=7, sat_tol=7, val_tol=7, amb_tol=10):
     """Checks if the current sensor reading matches the given color reference."""
+    print(f"checking color {color_name}")
     sensor = ColorSensor(Port.F)
     h, s, v = sensor.hsv()
+    print(f"h={h}, s={s}, v={v}")
+
     ambient = sensor.ambient()
+    print(f"ambient={ambient}")
 
     if color_name not in COLOR_REFERENCES:
         raise ValueError(f"Color '{color_name}' not in reference dictionary!")
 
     ref = COLOR_REFERENCES[color_name]
     ref_h, ref_s, ref_v = ref["hsv"]
+    print(f"ref_h={ref_h}, ref_s={ref_s}, ref_v={ref_v}")
     ref_amb = ref["ambient"]
+    print(f"ref_amb={ref_amb}")
 
     hue_match = abs(h - ref_h) < hue_tol
+    print(f"abs(h-ref_h)={abs(h-ref_h)}, hue_tol={hue_tol}")
     sat_match = abs(s - ref_s) < sat_tol
     val_match = abs(v - ref_v) < val_tol
     amb_match = abs(ambient - ref_amb) < amb_tol

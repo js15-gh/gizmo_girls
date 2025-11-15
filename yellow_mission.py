@@ -1,6 +1,5 @@
 import gizmo
 
-
 def main_program():
     #Mission 3 + 4
     #start last second line from end/right
@@ -76,6 +75,6 @@ def main_program():
 
   
 # --- RUN THE MAIN PROGRAM ---
-main_program()
+# main_program()
 
 

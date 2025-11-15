@@ -32,4 +32,4 @@ def main_program():
     gizmo.go_forward(6.7)
 
 
-main_program()
+# main_program()

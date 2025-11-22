@@ -22,7 +22,7 @@ def main_program():
     gizmo.turn_right_degrees(20)
     gizmo.d_turn_time(500,0.7)
     gizmo.go_forward(12.5)
-    gizmo.d_turn_time(-500,0.6)
+    gizmo.d_turn_time(-500,0.7)
 
 
 

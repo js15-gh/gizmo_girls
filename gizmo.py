@@ -36,6 +36,10 @@ CURVE_RADIUS_SIGN = -1
 hub = PrimeHub()
 robot = DriveBase(LEFT_MOTOR, RIGHT_MOTOR, WHEEL_DIAMETER_MM, AXLE_TRACK_MM)
 
+# Dedicated color sensor on Port F. Instantiate once to avoid I2C bus resets.
+PORT_F_SENSOR = ColorSensor(Port.F)
+_LAST_PORT_F_READING = None
+
 cur = robot.settings()
 straight_speed, straight_accel, turn_rate, turn_accel = cur
 
@@ -176,33 +180,88 @@ COLOR_REFERENCES = {
     "ORANGE": {"hsv": (3,83,64), "ambient": 0.4},
 }
 
-def color_check(color_name, hue_tol=8, sat_tol=8, val_tol=8, amb_tol=10):
-    """Checks if the current sensor reading matches the given color reference."""
-    print(f"checking color {color_name}")
-    sensor = ColorSensor(Port.F)
-    h, s, v = sensor.hsv()
-    print(f"h={h}, s={s}, v={v}")
+def read_port_f_color():
+    """
+    Reads the Port F color sensor once and caches the latest reading.
+    Returns a dict containing hsv tuple, ambient light and the raw color value.
+    """
+    global _LAST_PORT_F_READING
+    h, s, v = PORT_F_SENSOR.hsv()
+    ambient = PORT_F_SENSOR.ambient()
+    detected_color = PORT_F_SENSOR.color()
+    reading = {
+        "hsv": (h, s, v),
+        "ambient": ambient,
+        "detected_color": detected_color,
+    }
+    _LAST_PORT_F_READING = reading
+    print(f"Port.F reading -> hsv={reading['hsv']}, ambient={ambient}, color={detected_color}")
+    return reading
 
-    ambient = sensor.ambient()
-    print(f"ambient={ambient}")
-    print(f"color = {sensor.color()}")
 
+def color_check(
+    color_name,
+    hue_tol=8,
+    sat_tol=8,
+    val_tol=8,
+    amb_tol=10,
+    reading=None,
+):
+    """
+    Checks if the provided (or freshly sampled) reading matches the reference color.
+    Pass a shared reading when multiple colors need to be tested to avoid extra samples.
+    """
     if color_name not in COLOR_REFERENCES:
         raise ValueError(f"Color '{color_name}' not in reference dictionary!")
 
+    reading_provided = reading is not None
+    reading = reading or read_port_f_color()
+
+    h, s, v = reading["hsv"]
+    ambient = reading["ambient"]
+    detected_color = reading.get("detected_color")
+
+    if not reading_provided:
+        print(f"h={h}, s={s}, v={v}")
+        print(f"ambient={ambient}")
+        print(f"color = {detected_color}")
+
     ref = COLOR_REFERENCES[color_name]
     ref_h, ref_s, ref_v = ref["hsv"]
-    print(f"ref_h={ref_h}, ref_s={ref_s}, ref_v={ref_v}")
     ref_amb = ref["ambient"]
-    print(f"ref_amb={ref_amb}")
 
-    hue_match = abs(h - ref_h) < hue_tol
-    print(f"abs(h-ref_h)={abs(h-ref_h)}, hue_tol={hue_tol}")
-    sat_match = abs(s - ref_s) < sat_tol
-    val_match = abs(v - ref_v) < val_tol
-    amb_match = abs(ambient - ref_amb) < amb_tol
+    print(f"[{color_name}] ref_h={ref_h}, ref_s={ref_s}, ref_v={ref_v}, ref_amb={ref_amb}")
 
-    print(str(hue_match), str(sat_match), str(val_match), str(amb_match))
+    hue_delta = abs(h - ref_h)
+    sat_delta = abs(s - ref_s)
+    val_delta = abs(v - ref_v)
+    amb_delta = abs(ambient - ref_amb)
+
+    hue_match = hue_delta < hue_tol
+    sat_match = sat_delta < sat_tol
+    val_match = val_delta < val_tol
+    amb_match = amb_delta < amb_tol
+
+    debug_msg = (
+        "[{color}] hue_delta={hue}({h_tol}), sat_delta={sat}({s_tol}), "
+        "val_delta={val}({v_tol}), amb_delta={amb}({a_tol}) -> "
+        "{h_match},{s_match},{v_match},{a_match}"
+    ).format(
+        color=color_name,
+        hue=hue_delta,
+        h_tol=hue_tol,
+        sat=sat_delta,
+        s_tol=sat_tol,
+        val=val_delta,
+        v_tol=val_tol,
+        amb=amb_delta,
+        a_tol=amb_tol,
+        h_match=hue_match,
+        s_match=sat_match,
+        v_match=val_match,
+        a_match=amb_match,
+    )
+    print(debug_msg)
 
     return hue_match and sat_match and val_match and amb_match
 

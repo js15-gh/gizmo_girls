@@ -6,27 +6,31 @@ import yellow_mission
 import green_mission
 import red_mission
 
+COLOR_MISSIONS = (
+    ("MAGENTA", pink_mission.main_program),
+    ("ORANGE", black_mission.main_program),
+    ("BLUE", blue_mission.main_program),
+    ("RED", red_mission.main_program),
+    ("YELLOW", yellow_mission.main_program),
+    ("GREEN", green_mission.main_program),
+)
+
+
 def master():
-    if gizmo.color_check("MAGENTA"):
-        print("MAGENTA")
-        pink_mission.main_program()
-    elif gizmo.color_check("ORANGE"):
-        print("ORANGE")
-        black_mission.main_program()
-    elif gizmo.color_check("BLUE"):
-        print("BLUE")
-        blue_mission.main_program()
-    elif gizmo.color_check("RED"):
-        print("RED")
-        red_mission.main_program()s
-    elif gizmo.color_check("YELLOW"):
-        print("YELLOW")
-        yellow_mission.main_program()
-    elif gizmo.color_check("GREEN"):
-        print("GREEN")
-        green_mission.main_program()
-    else:  
-        print("NO COLOR IDENTIFIED")
+    """
+    Detect the color on Port F once, then dispatch the matching mission.
+    Reading once avoids recreating the sensor and keeps HSV/ambient consistent.
+    """
+    reading = gizmo.read_port_f_color()
+
+    for color_name, mission in COLOR_MISSIONS:
+        if gizmo.color_check(color_name, reading=reading):
+            print(color_name)
+            mission()
+            return
+
+    print("NO COLOR IDENTIFIED")
+
 
 master()
 

@@ -23,13 +23,13 @@ def main_program():
     gizmo.go_forward(1)
     gizmo.turn_left_degrees(12)
     gizmo.go_forward(3.9)
-    gizmo.d_turn_angle_back2zero(400,100)
+    gizmo.d_turn_angle_back2zero(400,90)
     gizmo.go_reverse(5)
     gizmo.turn_left_degrees(83)
     gizmo.change_speed(400)
     gizmo.go_forward(40)
     gizmo.turn_left_degrees(52)
-    gizmo.go_forward(6.7)
+    gizmo.go_forward(7.5)
 
 
 # main_program()

@@ -26,10 +26,10 @@ def main_program():
     gizmo.d_turn_angle_back2zero(400,90)
     gizmo.go_reverse(5)
     gizmo.turn_left_degrees(83)
-    gizmo.change_speed(400)
-    gizmo.go_forward(40)
-    gizmo.turn_left_degrees(52)
-    gizmo.go_forward(7.5)
+    gizmo.change_speed(500)
+    gizmo.go_forward(17)
+    gizmo.turn_left_degrees(40)
+    gizmo.go_forward(26.7)
 
 
 # main_program()

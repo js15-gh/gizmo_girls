@@ -11,7 +11,7 @@ def main_program():
     gizmo.wait_for_reflection(14)
     gizmo.wait(200)
     gizmo.d_turn_time(-300,0.9)
-    gizmo.c_turn_angle(200,45) #40
+    gizmo.c_turn_angle(200,52) #40
     gizmo.wait(100)
     #gizmo.c_turn_angle(200,-20)
     gizmo.go_reverse(5)
@@ -23,8 +23,9 @@ def main_program():
     gizmo.d_turn_time(500,0.7)
     gizmo.go_forward(13.5) #12.5
     gizmo.d_turn_time(-500,0.7)
-
-
+    gizmo.go_reverse(9)
+    gizmo.turn_right_degrees(130)
+    gizmo.go_forward(20)
 
 
 

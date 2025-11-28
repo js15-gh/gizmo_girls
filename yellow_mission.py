@@ -23,8 +23,10 @@ def main_program():
     gizmo.d_turn_time(500,0.7)
     gizmo.go_forward(13.5) #12.5
     gizmo.d_turn_time(-500,0.7)
-    gizmo.go_reverse(9)
+    gizmo.go_reverse(5)
     gizmo.turn_right_degrees(130)
+    gizmo.go_forward(9)
+    gizmo.turn_left_degrees(90)
     gizmo.go_forward(20)
 
 

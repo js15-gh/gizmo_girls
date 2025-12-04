@@ -6,9 +6,10 @@ def main_program():
 
 
 #2) Bring items to forum
-    gizmo.go_forward(19)
+    gizmo.go_forward(17)
     gizmo.go_reverse(5.1)
     gizmo.turn_right_degrees(45)
+    gizmo.change_speed(350)
     gizmo.wait_for_reflection(14)
     gizmo.wait(200)
     gizmo.go_forward(1)

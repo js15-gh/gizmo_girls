@@ -11,10 +11,10 @@ def main_program():
     gizmo.c_turn_angle(-150,120) # drop flag
     gizmo.go_reverse(2)
     gizmo.drive_forward(500,490,1)
-    gizmo.d_turn_angle(400,390) # # drop right lever
+    gizmo.d_turn_angle(850,390) # # drop right lever
     gizmo.change_speed(200)
     gizmo.go_reverse(8)
-    gizmo.d_turn_angle(300,-239) # lift of right lever
+    gizmo.d_turn_angle(800,-239) # lift of right lever
     gizmo.change_speed(300)
     gizmo.go_reverse(14)
 

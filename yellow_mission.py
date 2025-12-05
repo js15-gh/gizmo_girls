@@ -28,7 +28,7 @@ def main_program():
     gizmo.go_forward(9)
     gizmo.turn_left_degrees(90)
     gizmo.go_forward(20)
-
+    #coolll
 
 
 

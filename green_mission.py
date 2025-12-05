@@ -16,9 +16,8 @@ def main_program():
     gizmo.go_reverse(8)
     gizmo.d_turn_angle(300,-239) # lift of right lever
     gizmo.change_speed(300)
-    gizmo.go_reverse(11)
-#2) Bring items to forum
-    gizmo.go_forward(5)
+    gizmo.go_reverse(14)
+
 
 
 

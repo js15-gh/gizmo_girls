@@ -6,7 +6,7 @@ def main_program():
     gizmo.change_speed(500)
     gizmo.go_forward(38.5) #39
     gizmo.turn_single_motor_B(200,-345) #340 -> 325
-    gizmo.c_turn_angle(200,-500)
+    gizmo.c_turn_angle(500,-500)
     gizmo.d_turn_time(500,0.7)
     gizmo.wait_for_reflection(14)
     gizmo.wait(200)
@@ -22,9 +22,10 @@ def main_program():
     gizmo.turn_right_degrees(31) #20
     gizmo.d_turn_time(500,0.7)
     gizmo.go_forward(13.5) #12.5
-    gizmo.turn_left_degrees(23)
-    gizmo.d_turn_time(-100,1.1)
-    gizmo.turn_right_degrees(23)
+    gizmo.turn_left_degrees(45)
+    gizmo.d_turn_time(-100,1.0)
+    gizmo.wait(110)
+    gizmo.turn_right_degrees(45)
     gizmo.go_reverse(2)
     gizmo.turn_right_degrees(140)
     gizmo.go_forward(14)

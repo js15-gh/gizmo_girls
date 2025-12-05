@@ -13,9 +13,9 @@ def main_program():
     gizmo.d_turn_angle(300, 300)
     gizmo.wait(1.67)
     gizmo.d_turn_angle(-400, 200)
-    gizmo.turn_right_degrees(100)
-    gizmo.go_reverse(9)
-    gizmo.turn_left_degrees(200)
+    gizmo.turn_right_degrees(120)
+    gizmo.go_reverse(7.5)
+    gizmo.turn_left_degrees(280)
     # Map Reveal
     gizmo.change_speed(100)
     gizmo.go_reverse(8)

@@ -8,7 +8,7 @@ def main_program():
     gizmo.go_reverse(26)
     gizmo.go_forward(9)
     gizmo.d_turn_angle(-500, 260)
-    gizmo.go_reverse(5)
+    gizmo.go_reverse(3.7)
     gizmo.wait(1.67)
     gizmo.d_turn_angle(300, 300)
     gizmo.wait(1.67)

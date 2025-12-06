@@ -1,12 +1,13 @@
 import gizmo
 
+
 def main_program():
     #Mission 3 + 4
     #start last second line from end/right
     gizmo.change_speed(500)
-    gizmo.go_forward(38.5) #39
+    gizmo.go_forward(38.7) #39 38.5
     gizmo.turn_single_motor_B(200,-345) #340 -> 325
-    gizmo.c_turn_angle(500,-500)
+    gizmo.c_turn_angle(200,-500)
     gizmo.d_turn_time(500,0.7)
     gizmo.wait_for_reflection(14)
     gizmo.wait(200)
@@ -19,68 +20,17 @@ def main_program():
     gizmo.c_turn_angle(500,100)
     gizmo.turn_right_degrees(25)
     gizmo.go_forward(3)
-    gizmo.turn_right_degrees(31) #20
+    gizmo.turn_right_degrees(18) #20 31
     gizmo.d_turn_time(500,0.7)
     gizmo.go_forward(13.5) #12.5
-    gizmo.turn_left_degrees(45)
-    gizmo.d_turn_time(-100,1.0)
-    gizmo.wait(110)
-    gizmo.turn_right_degrees(45)
+    #gizmo.turn_left_degrees(23)
+    gizmo.d_turn_time(-500,0.7)
+    #gizmo.turn_right_degrees(23)
     gizmo.go_reverse(2)
     gizmo.turn_right_degrees(140)
     gizmo.go_forward(14)
     gizmo.turn_left_degrees(80)
     gizmo.go_forward(25)
     # #coolll
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # gizmo.go_forward(1.2)
-    # gizmo.turn_left_degrees(100)
-    # gizmo.wait_for_reflection(14)
-
-
-    
-
-
-
-
-
-
-
-   
-
-
-
-
-  
-# --- RUN THE MAIN PROGRAM ---
-# main_program()
 
 

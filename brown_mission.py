@@ -9,7 +9,7 @@ def main_program():
     gizmo.turn_left_degrees(91)
     gizmo.go_forward(21)
     gizmo.turn_left_degrees(86)
-    gizmo.go_forward(5.05)
+    gizmo.go_forward(4.95)
     gizmo.turn_left_degrees(14)
     gizmo.d_turn_angle(2000, 650)
     gizmo.go_reverse(10)

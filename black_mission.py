@@ -4,13 +4,13 @@ def main_program():
     print("Starting main program sequence...")
     print("-" * 20)
 
-#Temporary brown mission
+# #Temporary brown mission
     gizmo.change_speed(200)
     gizmo.go_forward(9)
     gizmo.turn_left_degrees(91)
     gizmo.go_forward(21)
     gizmo.turn_left_degrees(86)
-    gizmo.go_forward(5.05)
+    gizmo.go_forward(4.95)
     gizmo.turn_left_degrees(14)
     gizmo.d_turn_angle(2000, 650)
     gizmo.go_reverse(10)
@@ -24,7 +24,7 @@ def main_program():
 
 
 # Actual black mission
-    # # 1) Release boulders and flip city
+    # 1) Release boulders and flip city
     # gizmo.change_speed(200)
     # gizmo.go_forward(27.7)
     # gizmo.change_speed(100)

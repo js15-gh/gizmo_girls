@@ -8,14 +8,14 @@ def main_program():
 #2) Bring items to forum
     gizmo.change_speed(250)
     gizmo.go_forward(19)
-    gizmo.go_reverse(10.5)
+    gizmo.go_reverse(9.9) #10.5
     gizmo.change_speed(500)
     gizmo.turn_right_degrees(45)
-    gizmo.go_forward(19)
+    gizmo.go_forward(19.7)#18.5
     gizmo.c_turn_angle(300,330)
     gizmo.change_speed(200)
-    gizmo.turn_left_degrees(28)
-    gizmo.c_turn_angle(150,-100)
+    gizmo.turn_left_degrees(26) #28
+    gizmo.c_turn_angle(100,-100)
     gizmo.go_reverse(30)
     # gizmo.wait_for_reflection(14)
     # gizmo.wait(200)

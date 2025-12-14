@@ -5,6 +5,7 @@ import blue_mission
 import yellow_mission
 import green_mission
 import red_mission
+import brown_mission
 
 COLOR_MISSIONS = (
     ("MAGENTA", pink_mission.main_program),
@@ -13,6 +14,7 @@ COLOR_MISSIONS = (
     ("RED", red_mission.main_program),
     ("YELLOW", yellow_mission.main_program),
     ("GREEN", green_mission.main_program),
+    ("BROWN", brown_mission.main_program)
 )
 
 

@@ -165,9 +165,9 @@ def d_turn_angle_comeback(speed, angle):
 def c_turn_angle(speed, angle):
    C_ATTACHMENT.run_angle(speed, angle)
 
-def d_turn_angle(speed, angle):
-   print(f"d_turn_angle speed ={speed}, angle = {angle}")
-   D_ATTACHMENT.run_angle(speed, angle)
+def d_turn_angle(speed, angle, wait_value=True):
+   print(f"d_turn_angle speed ={speed}, angle = {angle}, wait_value={wait_value}")
+   D_ATTACHMENT.run_angle(speed, angle, wait=wait_value)
 
 # example stored color data (add more later)
 COLOR_REFERENCES = {

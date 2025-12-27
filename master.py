@@ -1,11 +1,11 @@
 import gizmo
-import black_mission
+import orange_mission
 import pink_mission
 import blue_mission
 import yellow_mission
 import green_mission
 import red_mission
-import brown_mission
+import grey_mission
 
 COLOR_MISSIONS = (
     ("MAGENTA", pink_mission.main_program),

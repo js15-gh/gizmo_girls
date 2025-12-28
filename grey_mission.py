@@ -7,7 +7,7 @@ def main_program():
     gizmo.change_speed(200)
     gizmo.go_forward(9)
     gizmo.turn_left_degrees(91)
-    gizmo.wait_for_reflection(14)
+    gizmo.wait_for_reflection_pick_speed(14,400)
     gizmo.go_reverse(4.67)
     gizmo.turn_left_degrees(86)
     gizmo.go_forward(5.6)

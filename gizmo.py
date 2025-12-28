@@ -178,7 +178,7 @@ COLOR_REFERENCES = {
     "YELLOW": {"hsv": (50, 71, 70), "ambient": 0.3},
     "BLACK": {"hsv": (0, 0, 11), "ambient": 0.3},
     "ORANGE": {"hsv": (3,83,64), "ambient": 0.4},
-    "GREY": {"hsv": (205, 17, 42), "ambient": 0.0}    
+    "GREY": {"hsv": (205, 25, 42), "ambient": 0.0}    
 }
 
 def read_port_f_color():
@@ -285,10 +285,27 @@ def wait_for_reflection(desired_number):
     print(f"wait_for_reflection {desired_number} starting..")
     # start driving the robot
     robot.drive(200,0)
+
     # while the desired reflection is not detected, keep waiting
     while sensor.reflection() >= desired_number:
         print(f"Color = {sensor.color()} , Reflection = {sensor.reflection()}")
         wait(20)
+
+    # if we are here, desired reflection must be detected, so we can stop
+    print(f"reached desired reflection {sensor.reflection()}, which is less than or equal to {desired_number}, so stop")
+    robot.stop()
+
+def wait_for_reflection_pick_speed(desired_number, speed):
+    sensor = ColorSensor(Port.E)
+    print(f"wait_for_reflection {desired_number}, and going at speed {speed}")
+    # start driving the robot
+    robot.drive(speed,0)
+
+    # while the desired reflection is not detected, keep waiting
+    while sensor.reflection() >= desired_number:
+        print(f"Color = {sensor.color()} , Reflection = {sensor.reflection()}")
+        wait(20)
+
     # if we are here, desired reflection must be detected, so we can stop
     print(f"reached desired reflection {sensor.reflection()}, which is less than or equal to {desired_number}, so stop")
     robot.stop()

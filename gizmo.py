@@ -178,7 +178,7 @@ COLOR_REFERENCES = {
     "YELLOW": {"hsv": (50, 71, 70), "ambient": 0.3},
     "BLACK": {"hsv": (0, 0, 11), "ambient": 0.3},
     "ORANGE": {"hsv": (3,83,64), "ambient": 0.4},
-    "GREY": {"hsv": (205, 25, 42), "ambient": 0.0}    
+    "GREY": {"hsv": (200, 11, 42), "ambient": 0.0}    
 }
 
 def read_port_f_color():

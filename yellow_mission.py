@@ -42,7 +42,7 @@ def main_program():
     gizmo.wait_for_reflection(14)
     # gizmo.wait(200)
     gizmo.go_forward(0.7)
-    gizmo.c_turn_angle(200,90)
+    gizmo.c_turn_angle(-200,90)
     gizmo.d_turn_time(-300,1.4)
     gizmo.go_reverse(7)
     gizmo.change_speed(500)

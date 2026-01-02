@@ -5,17 +5,19 @@ def main_program():
     print("-" * 20)
 
 
+    gizmo.change_speed(200)#300
     gizmo.go_forward(6.2)
     gizmo.turn_right_degrees(37)
     gizmo.go_forward(11.5) #12.25
-    gizmo.d_turn_angle(-300, 300)
+    gizmo.d_turn_angle(-300,300)
+    gizmo.change_speed(200)
     gizmo.turn_left_degrees(10.5)#10
     gizmo.turn_right_degrees(25)#30
-    gizmo.d_turn_angle(40,100)
-    gizmo.wait(1)
-    gizmo.change_speed(200)
-    gizmo.d_turn_angle(100,180,False) #30
-    gizmo.go_forward(2.5)
+    gizmo.d_turn_angle(40,99)#
+    gizmo.wait(0.5)#1
+    gizmo.change_speed(300)#200
+    gizmo.d_turn_angle(300,180,False) #100
+    gizmo.go_forward(3)#2.5
     gizmo.turn_right_degrees(10)
     gizmo.change_speed(300)#500
     gizmo.go_reverse(13) #20
@@ -23,7 +25,7 @@ def main_program():
     gizmo.go_reverse(12)
     gizmo.wait(30)
     gizmo.go_forward(19)
-    gizmo.turn_right_degrees(43)
+    gizmo.turn_right_degrees(42)
     gizmo.go_forward(7.67)
 
 #2) Bring items to forum
@@ -66,4 +68,4 @@ def main_program():
 
 
 # --- RUN THE MAIN PROGRAM ---
-#main_program()
+#main_program())#1

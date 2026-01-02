@@ -27,7 +27,7 @@ def main_program():
     gizmo.go_forward(19)
     gizmo.turn_right_degrees(42)
     gizmo.go_forward(7.67)
-
+    gizmo.go_reverse(7)
 #2) Bring items to forum
     # gizmo.change_speed(250)
     # gizmo.go_forward(19)

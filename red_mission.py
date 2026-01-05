@@ -16,7 +16,7 @@ def main_program():
     gizmo.d_turn_angle(40,99)#
     gizmo.wait(0.5)#1
     gizmo.change_speed(300)#200
-    gizmo.d_turn_angle(300,180,False) #100
+    gizmo.d_turn_angle(300,160,False) #180
     gizmo.go_forward(3)#2.5
     gizmo.turn_right_degrees(10)
     gizmo.change_speed(300)#500
@@ -25,7 +25,7 @@ def main_program():
     gizmo.go_reverse(12)
     gizmo.wait(30)
     gizmo.go_forward(19)
-    gizmo.turn_right_degrees(42)
+    gizmo.turn_right_degrees(41)
     gizmo.go_forward(7.67)
     gizmo.go_reverse(7)
 #2) Bring items to forum

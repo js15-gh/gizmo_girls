@@ -78,8 +78,8 @@ def master():
         except SystemExit:
             # 5. RESET: Triggered by Center Button (default stop behavior)
             print("System Reset: Returning to idle...")
-            gizmo.stop_all() # Ensure motors stop immediately
             wait(500) # Debounce delay before restart
+            break
 
 if __name__ == "__main__":
     master()

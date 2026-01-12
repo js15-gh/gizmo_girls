@@ -6,29 +6,25 @@ def main_program():
 
 
     gizmo.change_speed(200)#300
-    gizmo.go_forward(6.2)
-    gizmo.turn_right_degrees(37)
-    gizmo.go_forward(11.5) #12.25
-    gizmo.d_turn_angle(-300,300)
-    gizmo.change_speed(200)
-    gizmo.turn_left_degrees(10.5)#10
-    gizmo.turn_right_degrees(25)#30
-    gizmo.d_turn_angle(40,99)#
-    gizmo.wait(0.5)#1
+    gizmo.go_forward(6.1)
+    gizmo.turn_right_degrees(42)
+    gizmo.go_forward(8.67) #12.25
+    gizmo.d_turn_time(-300,1.5)
     gizmo.change_speed(300)#200
-    gizmo.go_forward(1.7)#removed the "false" so instead drive forwards first before lifting
-    gizmo.d_turn_time(100,2) #180
+    gizmo.go_forward(3.9)#removed the "false" so instead drive forwards first before lifting
+    gizmo.d_turn_time(400, 1.5) #180
     #gizmo.go_forward(3)#2.5
-    gizmo.turn_right_degrees(10)
     gizmo.change_speed(300)#500
     gizmo.go_reverse(13) #20
     gizmo.turn_left_degrees(44)#10
-    gizmo.go_reverse(12)
-    gizmo.wait(30)
+    gizmo.go_reverse(6)
+    gizmo.wait(100)
     gizmo.go_forward(19)
-    gizmo.turn_right_degrees(42)
+    gizmo.turn_right_degrees(32.5)
     gizmo.go_forward(7.67)
     gizmo.go_reverse(7)
+
+
     # gizmo.change_speed(200)#300
     # gizmo.go_forward(6.2)
     # gizmo.turn_right_degrees(37)

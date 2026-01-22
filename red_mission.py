@@ -3,25 +3,19 @@ import gizmo
 def main_program():
     print("Starting main program sequence...")
     print("-" * 20)
+    gizmo.reset_defaults()
 
-
-    gizmo.change_speed(200)#300
+    gizmo.change_speed(400)#300
     gizmo.go_forward(6.1)
     gizmo.turn_right_degrees(42)
-    gizmo.go_forward(8.67) #12.25
-    gizmo.d_turn_time(-300,1.5)
-    gizmo.change_speed(300)#200
-    gizmo.go_forward(3.9)#removed the "false" so instead drive forwards first before lifting
-    gizmo.d_turn_time(400, 1.5) #180
-    #gizmo.go_forward(3)#2.5
-    gizmo.change_speed(300)#500
-    gizmo.go_reverse(13) #20
-    gizmo.turn_left_degrees(44)#10
-    gizmo.go_reverse(6)
-    gizmo.wait(100)
-    gizmo.go_forward(19)
-    gizmo.turn_right_degrees(30.5)
-    gizmo.go_forward(5.67)
+    gizmo.go_forward(11.57)#removed the "false" so instead drive forwards first before lifting
+    gizmo.go_reverse(18.5) #20
+    gizmo.turn_left_degrees(20)#10
+    # gizmo.go_reverse(6)
+    gizmo.wait(1000)
+    # gizmo.go_forward(19)
+    # gizmo.turn_right_degrees(17)
+    gizmo.go_forward(25)
     gizmo.go_reverse(30)
 
 

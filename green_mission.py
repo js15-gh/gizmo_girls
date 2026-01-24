@@ -3,7 +3,7 @@ import gizmo
 def main_program():
     print("Starting main program sequence...")
     print("-" * 20)
-
+    gizmo.reset_defaults()
 
 #1) Raise the ship
     gizmo.change_speed(300)

@@ -69,7 +69,7 @@ def master():
                         hub.display.char("G")
                         grey_mission.main_program()
                 # Check specific restrictions
-                if selected_name == "MAGENTA":
+                elif selected_name == "MAGENTA":
                     if arrow_pressed == Button.LEFT:
                         hub.display.char("P")
                         pink_mission.main_program()
@@ -78,6 +78,8 @@ def master():
                         magenta_mission.main_program()
             
                 else:
+                    selected_mission()
+
                     # Execute immediately with single click logic
                     selected_mission()
             else:

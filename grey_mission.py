@@ -3,7 +3,7 @@ import gizmo
 def main_program():
     print("Starting main program sequence...")
     print("-" * 20)
-    # gizmo.reset_defaults()
+    gizmo.reset_defaults()
     # gizmo.change_speed(200)
     # gizmo.go_reverse(7.5)
     # gizmo.go_forward(37)

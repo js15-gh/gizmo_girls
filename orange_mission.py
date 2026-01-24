@@ -3,11 +3,7 @@ import gizmo
 def main_program():
     print("Starting main program sequence...")
     print("-" * 20)
-
-
-
-
-
+    gizmo.reset_defaults()
 
 # Actual black mission
 #     1) Release boulders and flip city

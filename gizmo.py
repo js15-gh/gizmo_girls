@@ -80,6 +80,9 @@ def go_forward(distance_inches):
     robot.straight(distance_mm)
     wait(100)  # Pause briefly for stability.
 
+def stop_all():
+    print("stopping robot")
+    robot.stop()
 
 def go_reverse(distance_inches):
     """Drives the robot straight backward for a specified distance in inches."""
@@ -168,6 +171,11 @@ def c_turn_angle(speed, angle):
 def d_turn_angle(speed, angle, wait_value=True):
    print(f"d_turn_angle speed ={speed}, angle = {angle}, wait_value={wait_value}")
    D_ATTACHMENT.run_angle(speed, angle, wait=wait_value)
+
+def d_turn_angle_wait(speed, angle):
+   print(f"d_turn_angle_wait speed ={speed}, angle = {angle}, wait_value={wait_value}")
+   D_ATTACHMENT.run_angle(speed, angle, wait=wait_value)
+   D_ATTACHMENT.run_time(speed, 1000, wait=False)
 
 # example stored color data (add more later)
 COLOR_REFERENCES = {
@@ -336,3 +344,22 @@ def drive_forward(left_power, right_power, distance_inches):
 
     LEFT_MOTOR.stop()
     RIGHT_MOTOR.stop()
+
+def reset_defaults():
+    # 1. Restore DriveBase speed/accel settings
+    robot.settings(straight_speed, straight_accel, turn_rate, turn_accel)
+    
+    # 2. Release motor locks so you can move the robot by hand
+    robot.stop() 
+    C_ATTACHMENT.stop()
+    D_ATTACHMENT.stop()
+    
+    # 3. Optional: Reset attachment angles if they must start at a known "0"
+    # C_ATTACHMENT.reset_angle(0)
+    # D_ATTACHMENT.reset_angle(0)
+    
+    # 4. Clear the shared sensor cache
+    global _LAST_PORT_F_READING
+    _LAST_PORT_F_READING = None
+    
+    print("Robot state reset for new mission.")

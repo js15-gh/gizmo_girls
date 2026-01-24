@@ -4,7 +4,7 @@ from pybricks.parameters import Button, Color
 from pybricks.tools import wait
 
 import orange_mission, pink_mission, blue_mission, yellow_mission
-import green_mission, red_mission, grey_mission
+import green_mission, red_mission, grey_mission, magenta_mission
 
 COLOR_MISSIONS = (
     ("MAGENTA", pink_mission.main_program),
@@ -68,6 +68,15 @@ def master():
                     elif arrow_pressed == Button.RIGHT:
                         hub.display.char("G")
                         grey_mission.main_program()
+                # Check specific restrictions
+                if selected_name == "MAGENTA":
+                    if arrow_pressed == Button.LEFT:
+                        hub.display.char("P")
+                        pink_mission.main_program()
+                    elif arrow_pressed == Button.RIGHT:
+                        hub.display.char("M")
+                        magenta_mission.main_program()
+            
                 else:
                     # Execute immediately with single click logic
                     selected_mission()

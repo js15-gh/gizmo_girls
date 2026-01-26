@@ -10,7 +10,7 @@ def main_program():
     gizmo.turn_right_degrees(42)
     gizmo.go_forward(11.57)#removed the "false" so instead drive forwards first before lifting
     gizmo.go_reverse(18.5) #20
-    gizmo.turn_left_degrees(20)#10
+    gizmo.turn_left_degrees(22)#10
     # gizmo.go_reverse(6)
     gizmo.wait(1000)
     # gizmo.go_forward(19)

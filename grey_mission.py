@@ -25,7 +25,7 @@ def main_program():
     # gizmo.change_speed(500)
     # gizmo.go_forward(39)
 
-    gizmo.drive_forward(490,505,17.5)
-    gizmo.d_turn_angle(-2000,950)
+    gizmo.drive_forward(490,510,17.5)
+    gizmo.d_turn_angle(-2000,700)
     gizmo.change_speed(500)
     gizmo.go_reverse(25)

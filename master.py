@@ -76,6 +76,38 @@ def master():
                     elif arrow_pressed == Button.RIGHT:
                         hub.display.char("M")
                         magenta_mission.main_program()
+                # Check specific restrictions
+                elif selected_name == "ORANGE":
+                    if arrow_pressed == Button.LEFT:
+                        hub.display.char("O")
+                        orange_mission.main_program()
+                    elif arrow_pressed == Button.RIGHT:
+                        hub.display.char("O")
+                        orange_mission.main_program()
+                # Check specific restrictions
+                elif selected_name == "YELLOW":
+                    if arrow_pressed == Button.LEFT:
+                        hub.display.char("Y")
+                        yellow_mission.main_program()
+                    elif arrow_pressed == Button.RIGHT:
+                        hub.display.char("Y")
+                        yellow_mission.main_program()
+                # Check specific restrictions
+                elif selected_name == "GREEN":
+                    if arrow_pressed == Button.LEFT:
+                        hub.display.char("G")
+                        green_mission.main_program()
+                    elif arrow_pressed == Button.RIGHT:
+                        hub.display.char("G")
+                        green_mission.main_program()
+                # Check specific restrictions
+                elif selected_name == "BLUE":
+                    if arrow_pressed == Button.LEFT:
+                        hub.display.char("B")
+                        blue_mission.main_program()
+                    elif arrow_pressed == Button.RIGHT:
+                        hub.display.char("B")
+                        blue_mission.main_program()
             
                 else:
                     selected_mission()

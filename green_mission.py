@@ -14,7 +14,7 @@ def main_program():
     #gizmo.drive_forward(500,490,1)
     gizmo.d_turn_time(300,1.8) # # drop right lever
     gizmo.change_speed(200)
-    gizmo.go_reverse(5.4)
+    gizmo.go_reverse(5.5)
     gizmo.d_turn_time(-500,0.6) # lift of right lever
     gizmo.change_speed(300)
     gizmo.go_reverse(14)

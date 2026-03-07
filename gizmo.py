@@ -177,6 +177,11 @@ def d_turn_angle_wait(speed, angle):
    D_ATTACHMENT.run_angle(speed, angle, wait=wait_value)
    D_ATTACHMENT.run_time(speed, 1000, wait=False)
 
+def stally():
+    if drive_base.stalled():
+        print("Robot stalled!")
+        drive_base.stop()
+
 # example stored color data (add more later)
 COLOR_REFERENCES = {
     "MAGENTA": {"hsv": (339, 77, 36), "ambient": 0.6},

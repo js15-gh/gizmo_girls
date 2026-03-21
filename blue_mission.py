@@ -11,7 +11,7 @@ def main_program():
     # gizmo.turn_left_degrees(80)
     # gizmo.turn_right_degrees(80)  
     gizmo.c_turn_angle(500, 460)  
-    gizmo.d_turn_angle(300, 220)
+    gizmo.d_turn_angle(700, 210)
     gizmo.c_turn_angle(-400, 450)
     gizmo.go_reverse(4.5)
     gizmo.d_turn_angle(-300, 220)

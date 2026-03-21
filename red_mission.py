@@ -28,7 +28,8 @@ def main_program():
 
     gizmo.change_speed(300)
     gizmo.go_forward(15)
-    gizmo.c_turn_angle(100,340)
+    gizmo.c_turn_angle(234,280)
+    gizmo.c_turn_angle(100,60)
     gizmo.wait(240)
     gizmo.c_turn_angle(400,-340)
     gizmo.go_reverse(10)

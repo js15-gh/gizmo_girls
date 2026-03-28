@@ -177,10 +177,19 @@ def d_turn_angle_wait(speed, angle):
    D_ATTACHMENT.run_angle(speed, angle, wait=wait_value)
    D_ATTACHMENT.run_time(speed, 1000, wait=False)
 
-def stally():
-    if drive_base.stalled():
-        print("Robot stalled!")
-        drive_base.stop()
+def stally(max_checks=10):
+    checks = 0
+
+    while checks < max_checks:
+        if drive_base.stalled():
+            checks += 1
+        else:
+            checks = 0
+
+        wait(10)  # small delay (10 ms)
+
+    print("Stall confirmed!")
+    drive_base.stop()
 
 # example stored color data (add more later)
 COLOR_REFERENCES = {

@@ -12,7 +12,7 @@ def main_program():
     gizmo.change_speed(100)
     gizmo.turn_left_degrees(95)
     gizmo.go_forward(2.5)
-    gizmo.go_reverse(10.5)
+    gizmo.go_reverse(10.15)
     gizmo.c_turn_angle(-2000, 240)
     gizmo.c_turn_angle(2000, 240)
     gizmo.wait(1.67)

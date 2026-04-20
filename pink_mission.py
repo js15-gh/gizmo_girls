@@ -5,6 +5,7 @@ def main_program():
     gizmo.reset_defaults()
     gizmo.change_turn_speed(100)
     gizmo.change_speed(400)
+    gizmo.change_speed(500)
     gizmo.go_forward(28)
     gizmo.turn_left_degrees(45)
     gizmo.go_forward(7.6)

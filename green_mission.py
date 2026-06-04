@@ -6,7 +6,7 @@ def main_program():
     gizmo.reset_defaults()
 
 #1) Raise the ship
-    gizmo.change_speed(300)
+    gizmo.change_speed(400)
     gizmo.drive_forward(500,490,19.8)
     gizmo.wait(500)
     gizmo.c_turn_angle(-150,120) # drop flag

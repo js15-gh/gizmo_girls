@@ -13,10 +13,10 @@ def main_program():
     gizmo.turn_right_degrees(80)
     gizmo.change_turn_speed(60)
     # gizmo.go_forward(6.5)
-    gizmo.d_turn_angle(200,147)
+    gizmo.d_turn_angle(200,170)
     # gizmo.go_reverse(5.5)
     # gizmo.turn_left_degrees(90)
-    gizmo.go_forward(2.3)
+    gizmo.go_forward(1.5) #go to deliver flag and pick aayana
     gizmo.d_turn_angle(200,-140)
     gizmo.stally
     # gizmo.go_reverse(2)
